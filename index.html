@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position:absolute;
+            width: 5vw;
+        }
+        .anime{
+            animation: movie 3s alternate infinite;
+        }
+        @keyframes movie {
+            from {transform: translateY(-200px) rotate(90deg)}
+            to {transform: translateY(200px) rotate(-90deg)}
+        }
+    </style>
+</head>
+<body onload="appear()">
+    <script>
+        // https://priler.github.io/Epic-BG-PPSSPP-like-/ppsspp.html
+        arr1 = new Array(5) 
+        for (let i=0; i<arr1.length; i++) {
+            arr1[i]=new Image()
+         }
+                      arr1[0].src="ambulance_car_rescue_icon_154379.svg"
+                      arr1[1].src="bacteria_disease_cell_icon_154391.svg"
+                      arr1[2].src="medical_protective_clothing_icon_154394.svg"
+                      arr1[3].src="quarantine_isolation_lockdown_icon_154366.svg"
+                      arr1[4].src="social_distancing_icon_154375.svg"
+    
+    function appear () {
+       var узел_gal=document.querySelector("body")
+       var узел_img=[]
+       for (let i=0; i< 200; i++) {
+            узел_img[i] = document.createElement ("img")
+            узел_gal.appendChild(узел_img[i])
+            узел_img[i].src=arr1[Math.round(Math.random()*4)].src
+            узел_img[i].style.top=Math.round(Math.random()*100)+"vh"
+            узел_img[i].style.left=Math.round(Math.random()*100)+"vw"
+            узел_img[i].classList.add("anime")
+            узел_img[i].style.animationDelay=Math.round(Math.random()*4+1)+"s"
+       }
+    }              
+    </script>
+</body>
+</html>
